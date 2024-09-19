@@ -18,6 +18,7 @@ const ImageHasher = () => {
   const [customString, setCustomString] = useState('');
   const [hash, setHash] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false); // To handle animation
 
   // Handle file drop and image preview
   const onDrop = useCallback(async (acceptedFiles) => {
@@ -74,6 +75,16 @@ const ImageHasher = () => {
     }
   };
 
+  // Generate random characters for animation
+  const generateRandomString = (length) => {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+  };
+
   // Handle Hash Generation
   const generateHash = () => {
     setLoading(true);
@@ -105,10 +116,20 @@ const ImageHasher = () => {
       entropySources += `-${customString.trim()}`;
     }
 
-    // Generate hash
-    const finalHash = CryptoJS.SHA256(entropySources).toString();
-    setHash(finalHash);
-    setLoading(false);
+    // Start animation by refreshing hash with random characters
+    setIsAnimating(true);
+    let interval = setInterval(() => {
+      setHash(generateRandomString(64)); // Refresh with random string of 64 characters
+    }, 100);
+
+    // Stop animation and generate final hash after 3 seconds
+    setTimeout(() => {
+      clearInterval(interval);
+      const finalHash = CryptoJS.SHA256(entropySources).toString();
+      setHash(finalHash);
+      setIsAnimating(false);
+      setLoading(false);
+    }, 3000);
   };
 
   // Handle location toggle
@@ -150,9 +171,9 @@ const ImageHasher = () => {
             {imagePreviews.map((preview, index) => (
               <img
                 key={index}
-                src={preview}
-                alt={`Uploaded ${index}`}
-                style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+              src={preview}
+              alt={`Uploaded ${index}`}
+              style={{ width: '100px', height: '100px', objectFit: 'cover' }}
               />
             ))}
           </div>
