@@ -19,6 +19,7 @@ const ImageHasher = () => {
   const [hash, setHash] = useState('');
   const [loading, setLoading] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false); // To handle animation
+  const [tooltip, setTooltip] = useState("Click to copy"); // Tooltip message
 
   // Handle file drop and image preview
   const onDrop = useCallback(async (acceptedFiles) => {
@@ -143,7 +144,8 @@ const ImageHasher = () => {
   // Copy hash to clipboard
   const copyToClipboard = () => {
     navigator.clipboard.writeText(hash).then(() => {
-      alert('Hash copied to clipboard!');
+      setTooltip("Copied!"); // Change tooltip to "Copied!" after copying
+      setTimeout(() => setTooltip("Click to copy"), 2000); // Reset tooltip after 2 seconds
     });
   };
 
@@ -154,13 +156,7 @@ const ImageHasher = () => {
       {/* Image Upload */}
       <div
         {...getRootProps()}
-        style={{
-          border: '2px dashed #cccccc',
-          padding: '20px',
-          textAlign: 'center',
-          cursor: 'pointer',
-          marginBottom: '20px',
-        }}
+        className="dropzone"
       >
         <input {...getInputProps()} accept="image/*" multiple />
         {isDragActive ? (
@@ -174,13 +170,12 @@ const ImageHasher = () => {
       {imagePreviews.length > 0 && (
         <div>
           <h3>Uploaded Images:</h3>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <div className="uploaded-images">
             {imagePreviews.map((preview, index) => (
               <img
                 key={index}
                 src={preview}
                 alt={`Uploaded ${index}`}
-                style={{ width: '100px', height: '100px', objectFit: 'cover' }}
               />
             ))}
           </div>
@@ -305,21 +300,11 @@ const ImageHasher = () => {
 
       {/* Display Hash */}
       {hash && (
-        <div style={{ marginTop: '20px' }}>
-          <h3>Your Unique Slice:</h3>
-          <div >
-            <textarea
-              readOnly
-              value={hash}
-              className="hash-display"
-            />
-            <button 
-              onClick={copyToClipboard}
-              className="button"
-            >
-              Copy
-            </button>
-          </div>
+        <div className="hash-container" onClick={copyToClipboard} title={tooltip}>
+          <textarea
+            readOnly
+            value={hash}
+          />
         </div>
       )}
     </div>

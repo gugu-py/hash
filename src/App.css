@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #1e1e1e; /* Dark background */
+  background-color: #121212; /* Dark background */
   color: #e0e0e0; /* Light text */
 }
 
@@ -16,21 +16,11 @@ body {
 
 .container {
   width: 90%;
-  max-width: 600px;
-  background-color: #2a2a2a; /* Slightly lighter than body */
-  padding: 30px;
+  max-width: 700px;
+  background-color: #1e1e1e; /* Slightly lighter than body */
+  padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-}
-
-/* Headings */
-h2, h3 {
-  color: #ffffff;
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #444;
-  padding-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Shadow for depth */
 }
 
 /* Dropzone for image uploads */
@@ -141,37 +131,44 @@ button:disabled {
   background-color: #333;
   padding: 15px;
   border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border: 1px solid #444;
   margin-top: 20px;
+  cursor: pointer; /* Add cursor pointer for click interaction */
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.hash-container:hover {
+  background-color: #444; /* Darken on hover */
 }
 
 .hash-container textarea {
-  width: 80%;
+  width: 100%;
   height: 100px;
-  background-color: #333;
+  background-color: transparent;
   border: none;
   resize: none;
   font-family: 'Courier New', Courier, monospace;
   color: #e0e0e0;
 }
 
-.copy-button {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Tooltip Styling */
+.hash-container::after {
+  content: attr(title); /* Tooltip content */
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
 }
 
-.copy-button:hover {
-  background-color: #218838;
-}
-
-.copy-button:active {
-  background-color: #1e7e34;
+.hash-container:hover::after {
+  opacity: 1; /* Show tooltip on hover */
 }
