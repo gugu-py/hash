@@ -1,0 +1,152 @@
+/* General Settings */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text */
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  background-color: #1e1e1e; /* Slightly lighter than body */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+/* Headings */
+h2 {
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+/* Upload Section */
+.dropzone {
+  border: 2px dashed #555555;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  background-color: #2b2b2b;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.dropzone:hover {
+  background-color: #3a3a3a;
+}
+
+.dropzone p {
+  color: #bbbbbb;
+  font-size: 16px;
+}
+
+.uploaded-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.uploaded-images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #444444;
+  transition: transform 0.2s;
+}
+
+.uploaded-images img:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Form Controls */
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+input[type="text"]:focus {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #2b2b2b;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #e0e0e0;
+  margin-top: 5px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus {
+  border-color: #777;
+}
+
+/* Custom String Input */
+textarea {
+  width: 100%;
+  height: 100px;
+  background-color: #2b2b2b;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #e0e0e0;
+  padding: 10px;
+  margin-top: 10px;
+  resize: none;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2196f3; /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e88e5;
+}
+
+button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+/* Display Hash */
+.generated-hash {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #2b2b2b;
+  border: 1px solid #555;
+  border-radius: 8px;
+  font-family: monospace;
+  color: #e0e0e0;
+}
