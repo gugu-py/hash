@@ -140,9 +140,16 @@ const ImageHasher = () => {
     setIncludeLocation(!includeLocation);
   };
 
+  // Copy hash to clipboard
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(hash).then(() => {
+      alert('Hash copied to clipboard!');
+    });
+  };
+
   return (
     <div>
-      <h2>Unique Slice of Time and Space Hasher</h2>
+      <h2>Make a Unique Slice</h2>
 
       {/* Image Upload */}
       <div
@@ -159,7 +166,7 @@ const ImageHasher = () => {
         {isDragActive ? (
           <p>Drop the images here ...</p>
         ) : (
-          <p>Drag & drop images here, or click to select images</p>
+          <p>Drag & drop images here, or click to select images (ctrl or command to select multiple)</p>
         )}
       </div>
 
@@ -171,9 +178,9 @@ const ImageHasher = () => {
             {imagePreviews.map((preview, index) => (
               <img
                 key={index}
-              src={preview}
-              alt={`Uploaded ${index}`}
-              style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+                src={preview}
+                alt={`Uploaded ${index}`}
+                style={{ width: '100px', height: '100px', objectFit: 'cover' }}
               />
             ))}
           </div>
@@ -280,7 +287,7 @@ const ImageHasher = () => {
 
         {/* Custom String */}
         <label>
-          Custom String:
+          Custom Information:
           <input
             type="text"
             value={customString}
@@ -293,18 +300,26 @@ const ImageHasher = () => {
 
       {/* Generate Hash Button */}
       <button onClick={generateHash} disabled={loading}>
-        {loading ? 'Processing...' : 'Generate Hash'}
+        {loading ? 'Processing...' : 'Generate Slice'}
       </button>
 
       {/* Display Hash */}
       {hash && (
         <div style={{ marginTop: '20px' }}>
-          <h3>Your Unique Hash:</h3>
-          <textarea
-            readOnly
-            value={hash}
-            style={{ width: '100%', height: '100px' }}
-          />
+          <h3>Your Unique Slice:</h3>
+          <div >
+            <textarea
+              readOnly
+              value={hash}
+              className="hash-display"
+            />
+            <button 
+              onClick={copyToClipboard}
+              className="button"
+            >
+              Copy
+            </button>
+          </div>
         </div>
       )}
     </div>
