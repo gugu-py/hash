@@ -172,3 +172,11 @@ button:disabled {
 .hash-container:hover::after {
   opacity: 1; /* Show tooltip on hover */
 }
+
+footer {
+  background-color: #1a1a1a; /* Dark background */
+  color: #888; /* Dim text color */
+  padding: 20px; /* Padding around the content */
+  text-align: center; /* Center align text */
+  font-size: 14px; /* Subdued font size */
+}

@@ -152,7 +152,8 @@ const ImageHasher = () => {
   return (
     <div>
       <h2>Slice</h2>
-      <p>Make a unique slice of your reality.</p>
+      <p>Each slice a choice, a path to take.</p>
+      <p>Take a slice of your reality by adding Information, and generate.</p>
       {/* Image Upload */}
       <div
         {...getRootProps()}
