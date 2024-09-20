@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# **Hash - Unique Slice of Time and Space**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **Overview**
 
-## Available Scripts
+**Hash** is a React application that allows users to generate a unique digital hash representing a slice of time, space, and custom information. Users can upload images, include timestamps, geolocation, and even custom strings to generate a unique hash that captures a moment or memory. The hash result can be easily copied by clicking on it.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## **Getting Started**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **Prerequisites**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run this project, ensure you have the following installed on your machine:
+- **Node.js**: Download and install from [https://nodejs.org/](https://nodejs.org/)
+- **npm**: It comes bundled with Node.js. Run `npm -v` to check if it's installed.
 
-### `npm test`
+### **Installation**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository**:
 
-### `npm run build`
+   ```bash
+   git clone https://github.com/your-username/image-hasher.git
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Navigate to the project directory**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   cd image-hasher
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Install the dependencies**:
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Running the App**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After the dependencies have been installed, you can start the app by running:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This will start the development server and open the app in your default browser. The app should be accessible at [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## **Usage**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+visit the website and you will find out by yourself. Quite straight forward.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## **Folder Structure**
 
-### Analyzing the Bundle Size
+```
+├── public
+│   ├── index.html         # Main HTML file
+├── src
+│   ├── ImageHasher.js     # Main React component
+│   ├── App.js             # App entry component
+│   ├── App.css            # Custom CSS styles
+│   └── index.js           # Main JavaScript entry point
+├── package.json           # Project dependencies and scripts
+├── README.md              # This README file
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## **Customization**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### **Changing the Font**
 
-### Advanced Configuration
+To customize the font, you can either:
+1. Use a Google Font by importing it in the `App.css` or `index.html`.
+2. Use a locally hosted font by including it in the `/src/fonts/` directory and referencing it in your CSS.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### **CSS Modifications**
 
-### Deployment
+If you want to change the look and feel of the app, you can modify the `App.css` file. The default theme is a dark mode, but you can customize the colors, typography, and layouts as needed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## **Built With**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **React**: A JavaScript library for building user interfaces. Learn more at [React](https://reactjs.org/).
+- **CryptoJS**: A library for generating the SHA-256 hash. Learn more at [CryptoJS](https://cryptojs.gitbook.io/docs/).
+- **browser-image-compression**: A library for image compression in the browser. Learn more at [browser-image-compression](https://www.npmjs.com/package/browser-image-compression).
+
+## **License**
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
